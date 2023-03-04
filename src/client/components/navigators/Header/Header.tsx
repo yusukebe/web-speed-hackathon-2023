@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
-import { useAuthMe } from '../../../hooks/useAuthUser';
+import { useAuthUser } from '../../../hooks/useAuthUser';
 import { useOpenModal } from '../../../store/modal';
 import { Anchor } from '../../foundation/Anchor';
 import { Image } from '../../foundation/Image';
@@ -9,7 +9,7 @@ import { Image } from '../../foundation/Image';
 import * as styles from './Header.styles';
 
 export const Header: FC = () => {
-  const { isAuthUser } = useAuthMe();
+  const { isAuthUser } = useAuthUser();
   const handleOpenModal = useOpenModal();
 
   return (
