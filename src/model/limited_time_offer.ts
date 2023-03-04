@@ -7,6 +7,9 @@ export class LimitedTimeOffer {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Column()
+  productId!: number;
+
   @ManyToOne(() => Product)
   product!: Relation<Product>;
 

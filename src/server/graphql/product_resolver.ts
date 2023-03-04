@@ -10,14 +10,14 @@ export const productResolver: GraphQLModelResolver<Product> = {
   media: (parent) => {
     return dataSource.manager.find(ProductMedia, {
       where: {
-        product: parent,
+        productId: parent.id,
       },
     });
   },
   offers: (parent) => {
     return dataSource.manager.find(LimitedTimeOffer, {
       where: {
-        product: parent,
+        productId: parent.id,
       },
     });
   },

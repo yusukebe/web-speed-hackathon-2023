@@ -21,7 +21,7 @@ export const MediaItem: FC<Props> = ({ file }) => {
     if (mediaType === 'image') {
       return setImageSrc(file.filename);
     }
-    loadThumbnail(file.filename).then((url) => setImageSrc(url));
+    setImageSrc(file.filename.replace(/\.mp4$/, '.webp'));
   }, [file.filename, mediaType]);
 
   if (imageSrc === undefined) {

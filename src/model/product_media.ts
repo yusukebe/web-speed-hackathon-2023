@@ -8,6 +8,9 @@ export class ProductMedia {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Column()
+  productId!: number;
+
   @ManyToOne(() => Product)
   product!: Relation<Product>;
 

@@ -1,4 +1,4 @@
-import { Entity, ManyToOne, PrimaryGeneratedColumn, type Relation } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, type Relation } from 'typeorm';
 
 import { FeatureSection } from './feature_section';
 import { Product } from './product';
@@ -7,6 +7,9 @@ import { Product } from './product';
 export class FeatureItem {
   @PrimaryGeneratedColumn()
   id!: number;
+
+  @Column()
+  sectionId!: number;
 
   @ManyToOne(() => FeatureSection)
   section!: Relation<FeatureSection>;

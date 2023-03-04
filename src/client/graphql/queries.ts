@@ -108,8 +108,6 @@ export const GetFeatureSectionsQuery = gql`
         }
         id
       }
-      id
-      title
     }
   }
 `;
