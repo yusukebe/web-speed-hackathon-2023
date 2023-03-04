@@ -1,4 +1,5 @@
-import _ from 'lodash';
+// eslint-disable-next-line import/named
+import isEqual from 'lodash/isEqual';
 import type { FC } from 'react';
 import { memo } from 'react';
 
@@ -26,6 +27,6 @@ export const ProductList: FC<Props> = memo(({ featureSection }) => {
       }}
     </GetDeviceType>
   );
-}, _.isEqual);
+}, isEqual);
 
 ProductList.displayName = 'ProductList';

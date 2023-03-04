@@ -1,4 +1,5 @@
-import _ from 'lodash';
+// eslint-disable-next-line import/named
+import isEqual from 'lodash/isEqual';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
@@ -66,7 +67,7 @@ export const ProductPurchaseSection: FC<Props> = memo(
       </div>
     );
   },
-  _.isEqual,
+  isEqual,
 );
 
 ProductPurchaseSection.displayName = 'ProductPurchaseSection';
