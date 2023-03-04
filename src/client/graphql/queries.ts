@@ -55,11 +55,27 @@ export type GetProductDetailsQueryResponse = {
 };
 
 export const GetRecommendationsQuery = gql`
-  ${RecommendationFragment}
-
   query GetRecommendations {
     recommendations {
-      ...RecommendationFragment
+      product {
+        id
+        name
+        media {
+          id
+          file {
+            id
+            filename
+          }
+          isThumbnail
+        }
+        offers {
+          id
+          price
+          startDate
+          endDate
+        }
+        price
+      }
     }
   }
 `;
@@ -68,11 +84,32 @@ export type GetRecommendationsQueryResponse = {
 };
 
 export const GetFeatureSectionsQuery = gql`
-  ${FeatureSectionFragment}
-
   query GetFeatureSections {
     features {
-      ...FeatureSectionFragment
+      items {
+        product {
+          id
+          name
+          price
+          media {
+            id
+            file {
+              id
+              filename
+            }
+            isThumbnail
+          }
+          offers {
+            id
+            price
+            startDate
+            endDate
+          }
+        }
+        id
+      }
+      id
+      title
     }
   }
 `;

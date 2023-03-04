@@ -27,7 +27,7 @@ export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
       setImageDataUrl('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
       return;
     }
-    const url = thumbnailFile.filename.replace(/\.webp$/, '.jpg');
+    const url = thumbnailFile.filename.replace(/\.webp$/, '.big.webp');
     setImageDataUrl(url);
   }, [thumbnailFile]);
 

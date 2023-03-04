@@ -133,7 +133,7 @@ async function seedMediaFiles(): Promise<MediaFile[]> {
   const videoDir = path.resolve(publicDir, 'videos');
   const files = (await Promise.all([await getFileList(imageDir), await getFileList(videoDir)])).flat();
   const filenames = files.map((file) => {
-    const relativePath = path.relative(publicDir, file);
+    const relativePath = path.relative(`${publicDir}`, file);
     return '/' + relativePath;
   });
   const mediaList: MediaFile[] = [];
