@@ -7,13 +7,24 @@ import type {
   ProductWithReviewFragmentResponse,
   RecommendationFragmentResponse,
 } from './fragments';
-import {
-  AuthUserFragment,
-  FeatureSectionFragment,
-  ProductReviewFragment,
-  ProductWithReviewFragment,
-  RecommendationFragment,
-} from './fragments';
+import { AuthUserFragment, ProductReviewFragment, ProductWithReviewFragment } from './fragments';
+
+export const GetMeQuery = gql`
+  query Me {
+    me {
+      email
+      id
+      profile {
+        avatar {
+          id
+          filename
+        }
+        id
+        name
+      }
+    }
+  }
+`;
 
 export const GetAuthUserQuery = gql`
   ${AuthUserFragment}
