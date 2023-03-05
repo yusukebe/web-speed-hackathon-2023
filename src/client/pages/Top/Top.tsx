@@ -18,7 +18,9 @@ export const Top: FC = () => {
         <Suspense fallback="">
           <Hero />
         </Suspense>
-        <Feature />
+        <Suspense fallback="">
+          <Feature />
+        </Suspense>
       </div>
     </>
   );

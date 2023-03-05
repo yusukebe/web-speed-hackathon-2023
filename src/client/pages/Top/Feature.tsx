@@ -1,18 +1,17 @@
 import type { FC } from 'react';
+import { memo } from 'react';
 
 import { ProductList } from '../../components/feature/ProductList';
 import { useFeatures } from '../../hooks/useFeatures';
 
 import * as styles from './Top.styles';
 
-const Feature: FC = () => {
+const Feature: FC = memo(() => {
   const { features } = useFeatures();
 
-  if (features === undefined) {
+  if (!features) {
     return null;
   }
-
-  console.log(features);
 
   return (
     <div className={styles.featureList()}>
@@ -26,6 +25,8 @@ const Feature: FC = () => {
       })}
     </div>
   );
-};
+});
+
+Feature.displayName = 'Feature';
 
 export default Feature;

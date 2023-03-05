@@ -8,5 +8,9 @@ export const useFeatures = () => {
 
   const features = featuresResult.data?.features;
 
+  if (features == null) {
+    return { features: undefined };
+  }
+
   return { features };
 };
