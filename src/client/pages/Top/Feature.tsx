@@ -9,7 +9,7 @@ import * as styles from './Top.styles';
 const Feature: FC = memo(() => {
   const { features } = useFeatures();
 
-  if (!features) {
+  if (features == undefined) {
     return null;
   }
 
