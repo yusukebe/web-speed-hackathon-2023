@@ -15,11 +15,9 @@ export function useActiveOffer(product: ProductFragmentResponse | undefined) {
 
       const offer = getActiveOffer(product.offers);
       setActiveOffer(offer);
-    }, 0);
+    }, 100);
 
-    return () => {
-      clearInterval(timer);
-    };
+    clearInterval(timer);
   }, [product]);
 
   return { activeOffer };

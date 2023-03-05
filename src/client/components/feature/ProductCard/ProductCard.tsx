@@ -1,5 +1,6 @@
 import * as currencyFormatter from 'currency-formatter';
 import type { FC } from 'react';
+import { memo } from 'react';
 
 import type { ProductFragmentResponse } from '../../../graphql/fragments';
 import { useActiveOffer } from '../../../hooks/useActiveOffer';
@@ -14,7 +15,7 @@ type Props = {
   product: ProductFragmentResponse;
 };
 
-export const ProductCard: FC<Props> = ({ product }) => {
+export const ProductCard: FC<Props> = memo(({ product }) => {
   const thumbnailFile = product.media.find((productMedia) => productMedia.isThumbnail)?.file;
 
   const { activeOffer } = useActiveOffer(product);
@@ -42,4 +43,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
       </div>
     </Anchor>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';
