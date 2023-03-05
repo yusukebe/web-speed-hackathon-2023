@@ -1,0 +1,6 @@
+name = "wsh2023-worker"
+compatibility_date = "2023-01-01"
+
+kv_namespaces = [
+  { binding = "wsh2023", id = "1c68bbe5c5a640acba3af2f38524613b" }
+]

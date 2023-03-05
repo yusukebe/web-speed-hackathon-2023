@@ -7,7 +7,6 @@ import { getMediaType } from '../../../../utils/get_media_type';
 import { Image } from '../../../foundation/Image';
 
 import * as styles from './MediaItem.styles';
-import { loadThumbnail } from './loadThumbnail';
 
 type Props = {
   file: MediaFileFragmentResponse;
@@ -19,7 +18,7 @@ export const MediaItem: FC<Props> = ({ file }) => {
 
   useEffect(() => {
     if (mediaType === 'image') {
-      return setImageSrc(file.filename);
+      return setImageSrc(file.filename.replace(/\.webp$/, '.small.webp'));
     }
     setImageSrc(file.filename.replace(/\.mp4$/, '.webp'));
   }, [file.filename, mediaType]);
