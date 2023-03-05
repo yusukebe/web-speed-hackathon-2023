@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 
-import { Layout } from '../../components/application/Layout';
 import { WidthRestriction } from '../../components/foundation/WidthRestriction';
 //import { OrderForm } from '../../components/order/OrderForm';
 import { OrderPreview } from '../../components/order/OrderPreview';
@@ -92,9 +91,7 @@ export const Order: FC = () => {
       <Helmet>
         <title>購入手続き</title>
       </Helmet>
-      <Layout>
-        <WidthRestriction>{renderContents()}</WidthRestriction>
-      </Layout>
+      <WidthRestriction>{renderContents()}</WidthRestriction>
     </>
   );
 };

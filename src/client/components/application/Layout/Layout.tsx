@@ -1,18 +1,25 @@
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
+import { lazy, Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
-import { Footer } from '../../navigators/Footer/Footer';
-import { Header } from '../../navigators/Header/Header';
+//import { Footer } from '../../navigators/Footer/Footer';
+//import { Header } from '../../navigators/Header/Header';
+
+const Footer = lazy(() => import('../../navigators/Footer'));
+const Header = lazy(() => import('../../navigators/Header'));
 
 import * as styles from './Layout.styles';
 
-type Props = {
-  children: ReactNode;
-};
-
-export const Layout: FC<Props> = ({ children }) => (
+export const Layout: FC = () => (
   <>
-    <Header />
-    <main className={styles.container()}>{children}</main>
-    <Footer />
+    <Suspense fallback="">
+      <Header />
+    </Suspense>
+    <main className={styles.container()}>
+      <Outlet key="outlet" />
+    </main>
+    <Suspense fallback="">
+      <Footer />
+    </Suspense>
   </>
 );

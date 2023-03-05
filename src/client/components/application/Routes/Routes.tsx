@@ -11,6 +11,8 @@ import { lazy, Suspense } from 'react';
 
 import { useScrollToTop } from './hooks';
 
+import { Layout } from '../Layout';
+
 const NotFound = lazy(() => import('../../../pages/NotFound'));
 const Order = lazy(() => import('../../../pages/Order'));
 const OrderComplete = lazy(() => import('../../../pages/OrderComplete'));
@@ -23,11 +25,13 @@ export const Routes: FC = () => {
   return (
     <Suspense fallback="">
       <Router.Routes>
-        <Router.Route element={<Top />} path="/" />
-        <Router.Route element={<ProductDetail />} path="/product/:productId" />
-        <Router.Route element={<Order />} path="/order" />
-        <Router.Route element={<OrderComplete />} path="/order/complete" />
-        <Router.Route element={<NotFound />} path="*" />
+        <Router.Route element={<Layout />}>
+          <Router.Route element={<Top />} path="/" />
+          <Router.Route element={<ProductDetail />} path="/product/:productId" />
+          <Router.Route element={<Order />} path="/order" />
+          <Router.Route element={<OrderComplete />} path="/order/complete" />
+          <Router.Route element={<NotFound />} path="*" />
+        </Router.Route>
       </Router.Routes>
     </Suspense>
   );
