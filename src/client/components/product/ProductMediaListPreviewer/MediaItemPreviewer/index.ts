@@ -1,1 +1,2 @@
-export * from './MediaItemPreviewer';
+import { MediaItemPreviewer } from './MediaItemPreviewer';
+export default MediaItemPreviewer;

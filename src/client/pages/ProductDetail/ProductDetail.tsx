@@ -1,9 +1,10 @@
 import type { FC } from 'react';
+import { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 
 import { WidthRestriction } from '../../components/foundation/WidthRestriction';
-import { ProductMediaListPreviewer } from '../../components/product/ProductMediaListPreviewer';
+//import { ProductMediaListPreviewer } from '../../components/product/ProductMediaListPreviewer';
 import { ProductOverview } from '../../components/product/ProductOverview';
 import { ProductPurchaseSection } from '../../components/product/ProductPurchaseSeciton';
 import { ReviewSection } from '../../components/review/ReviewSection';
@@ -16,6 +17,8 @@ import { useSendReview } from '../../hooks/useSendReview';
 import { useUpdateCartItem } from '../../hooks/useUpdateCartItems';
 import { useOpenModal } from '../../store/modal';
 import { normalizeCartItemCount } from '../../utils/normalize_cart_item';
+
+const ProductMediaListPreviewer = lazy(() => import('../../components/product/ProductMediaListPreviewer'));
 
 import * as styles from './ProductDetail.styles';
 
@@ -57,7 +60,9 @@ export const ProductDetail: FC = () => {
       <WidthRestriction>
         <div className={styles.container()}>
           <section className={styles.details()}>
-            <ProductMediaListPreviewer product={product} />
+            <Suspense fallback="">
+              <ProductMediaListPreviewer product={product} />
+            </Suspense>
             <div className={styles.overview()}>
               <ProductOverview activeOffer={activeOffer} product={product} />
             </div>
