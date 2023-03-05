@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import isEqual from 'lodash/isEqual';
+import  isEqual  from 'lodash/isEqual';
 import type { FC } from 'react';
 import { memo } from 'react';
 

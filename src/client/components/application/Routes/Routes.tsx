@@ -7,7 +7,7 @@ import { lazy, Suspense } from 'react';
 //import { Order } from '../../../pages/Order';
 //import { OrderComplete } from '../../../pages/OrderComplete';
 // import { ProductDetail } from '../../../pages/ProductDetail';
-// import { Top } from '../../../pages/Top';
+// import Top from '../../../pages/Top';
 
 import { useScrollToTop } from './hooks';
 
