@@ -4,8 +4,9 @@ import { Helmet } from 'react-helmet';
 
 //import { ProductHeroImage } from '../../components/product/ProductHeroImage';
 // eslint-disable-next-line import/order
+import Hero from './Hero';
 
-const Hero = lazy(() => import('./Hero'));
+//const Hero = lazy(() => import('./Hero'));
 const Feature = lazy(() => import('./Feature'));
 
 export const Top: FC = () => {
@@ -15,9 +16,7 @@ export const Top: FC = () => {
         <title>買えるオーガニック</title>
       </Helmet>
       <div>
-        <Suspense fallback="">
-          <Hero />
-        </Suspense>
+        <Hero />
         <Suspense fallback="">
           <Feature />
         </Suspense>

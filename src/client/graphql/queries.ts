@@ -79,12 +79,6 @@ export const GetRecommendationsQuery = gql`
           }
           isThumbnail
         }
-        offers {
-          id
-          price
-          startDate
-          endDate
-        }
         price
       }
     }

@@ -12,7 +12,6 @@ import { lazy, Suspense } from 'react';
 import { useScrollToTop } from './hooks';
 
 import { Layout } from '../Layout';
-import { LayoutNotFound } from '../Layout/LayoutNotFound';
 
 const NotFound = lazy(() => import('../../../pages/NotFound'));
 const Order = lazy(() => import('../../../pages/Order'));

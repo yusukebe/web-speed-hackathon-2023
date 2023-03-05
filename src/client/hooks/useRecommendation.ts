@@ -8,7 +8,6 @@ export const useRecommendation = () => {
 
   const hour = window.Temporal.Now.plainTimeISO().hour;
   const recommendations = recommendationsResult?.data?.recommendations;
-
   if (recommendations == null) {
     return { recommendation: undefined };
   }
