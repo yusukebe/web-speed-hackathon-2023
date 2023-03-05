@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 
 import type { MediaFileFragmentResponse } from '../../../../graphql/fragments';
@@ -12,7 +12,7 @@ type Props = {
   file: MediaFileFragmentResponse;
 };
 
-export const MediaItem: FC<Props> = ({ file }) => {
+export const MediaItem: FC<Props> = memo(({ file }) => {
   const [imageSrc, setImageSrc] = useState<string>();
   const mediaType = getMediaType(file.filename);
 
@@ -37,4 +37,6 @@ export const MediaItem: FC<Props> = ({ file }) => {
       )}
     </div>
   );
-};
+});
+
+MediaItem.displayName = 'MediaItem';

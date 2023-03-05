@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { memo } from 'react';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 import { useAuthUser } from '../../../hooks/useAuthUser';
@@ -8,7 +9,7 @@ import { Image } from '../../foundation/Image';
 
 import * as styles from './Header.styles';
 
-export const Header: FC = () => {
+export const Header: FC = memo(() => {
   const { isAuthUser } = useAuthUser();
   const handleOpenModal = useOpenModal();
 
@@ -36,4 +37,6 @@ export const Header: FC = () => {
       )}
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';

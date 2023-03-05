@@ -30,7 +30,6 @@ export default defineConfig(async () => {
       rollupOptions: {
         output: {
           experimentalMinChunkSize: 40960,
-          manualChunks: {},
         },
         plugins: [visualizer()],
       },
