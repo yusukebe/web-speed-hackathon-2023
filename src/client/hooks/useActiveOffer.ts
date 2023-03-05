@@ -7,7 +7,7 @@ export function useActiveOffer(product: ProductFragmentResponse | undefined) {
   const [activeOffer, setActiveOffer] = useState<LimitedTimeOfferFragmentResponse | undefined>(undefined);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setImmediate(() => {
       if (!product) {
         setActiveOffer(undefined);
         return;
@@ -15,9 +15,9 @@ export function useActiveOffer(product: ProductFragmentResponse | undefined) {
 
       const offer = getActiveOffer(product.offers);
       setActiveOffer(offer);
-    }, 100);
+    });
 
-    clearInterval(timer);
+    clearImmediate(timer);
   }, [product]);
 
   return { activeOffer };
