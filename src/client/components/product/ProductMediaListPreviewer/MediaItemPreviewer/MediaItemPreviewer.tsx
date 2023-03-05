@@ -13,11 +13,12 @@ type Props = {
 };
 
 export const MediaItemPreviewer: FC<Props> = ({ file }) => {
-  const filename = file ? file.filename : '/images/gray.webp';
+  const filename = file?.filename ? file.filename.replace(/\.webp$/, '.big.webp') : '/images/gray.webp';
+
   const type = getMediaType(filename);
   return (
     <div className={styles.container()}>
-      {type === 'image' && <Image fill src={filename.replace(/\.webp$/, '.big.webp')} />}
+      {type === 'image' && <Image fill src={filename} />}
       {type === 'video' && (
         <GetDeviceType>
           {({ deviceType }) => (

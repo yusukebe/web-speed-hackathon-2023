@@ -15,11 +15,9 @@ type Props = {
 };
 
 export const ProductMediaListPreviewer: FC<Props> = ({ product }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  console.log('fooo', product);
 
-  if (product === undefined || product.media.length === 0) {
-    // return null;
-  }
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
     <div className={styles.container()}>
