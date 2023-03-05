@@ -1,7 +1,6 @@
 import { useFormik } from 'formik';
 import cloneDeep from 'lodash/cloneDeep';
 import type { ChangeEventHandler, FC } from 'react';
-import zipcodeJa from 'zipcode-ja';
 
 import { PrimaryButton } from '../../foundation/PrimaryButton';
 import { TextInput } from '../../foundation/TextInput';
@@ -30,10 +29,13 @@ export const OrderForm: FC<Props> = ({ onSubmit }) => {
     onSubmit,
   });
 
-  const handleZipcodeChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleZipcodeChange: ChangeEventHandler<HTMLInputElement> = async (event) => {
     formik.handleChange(event);
 
     const zipCode = event.target.value;
+
+    const pkg = await import('zipcode-ja');
+    const zipcodeJa = pkg.default;
 
     if (zipCode.length !== 7) return;
 
