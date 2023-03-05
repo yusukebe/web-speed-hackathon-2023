@@ -21,13 +21,15 @@ export const AspectRatio: FC<Props> = ({ children, ratioHeight, ratioWidth }) =>
       setClientHeight(height);
     });
 
-    const timer = setImmediate(() => {
-      updateClientHeight();
-      clearImmediate(timer);
-    });
+    let timer = (function tick() {
+      return setTimeout(() => {
+        updateClientHeight();
+        timer = tick();
+      }, 100);
+    })();
 
     return () => {
-      clearImmediate(timer);
+      clearTimeout(timer);
     };
   }, [ratioHeight, ratioWidth]);
 
